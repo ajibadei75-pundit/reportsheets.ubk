@@ -1,0 +1,117 @@
+@page { size: A4; margin: 0; }
+.report-page {
+  width: 210mm; height: 297mm; padding: 10mm; box-sizing: border-box;
+  background: #fff; color: #000; position: relative; overflow: hidden;
+  font-family: "Tinos", "Times New Roman", "Liberation Serif", Times, serif;
+  margin: 0 auto 8mm auto; box-shadow: 0 0 6px rgba(0,0,0,.25);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.report-page * { box-sizing: border-box; }
+@media print { .report-page { box-shadow: none; margin: 0; page-break-after: always; } }
+
+/* shared field: label + underline with value */
+.rf { display: flex; align-items: flex-end; min-width: 0; }
+.rf-l { white-space: nowrap; font-size: 11.5pt; line-height: 1; padding-bottom: .5mm; }
+.rf-v { flex: 1; min-width: 0; border-bottom: .3mm solid #000; margin-left: 1.5mm; display: flex; align-items: flex-end; justify-content: center;
+  font-weight: 700; font-size: 11pt; line-height: 1; height: 5.6mm; padding-bottom: .3mm; white-space: nowrap; overflow: hidden; }
+.rf-v.dot { border-bottom: .3mm dotted #444; }
+
+/* ruled text blocks (comments) */
+.ruled { position: relative; }
+.ruled p { margin: 0; position: relative; font-size: 11.5pt; }
+.ruled .rl { position: absolute; left: 0; right: 0; border-bottom: .3mm solid #000; height: 0; }
+.ruled .rt { font-weight: 700; font-size: 10pt; }
+.sigimg { position: absolute; height: 9mm; max-width: 40mm; object-fit: contain; }
+
+/* ========== PRIMARY / NURSERY / KG ========== */
+.rp-head { height: 29mm; display: flex; align-items: center; }
+.rp-logo { width: 26mm; height: 26mm; border-radius: 50%; object-fit: cover; flex: none; margin-left: 4mm; }
+.rp-htext { flex: 1; text-align: center; padding-right: 6mm; }
+.rp-title { font-family: "Anton", Impact, "Arial Narrow", sans-serif; font-size: 28pt; line-height: 1.05; letter-spacing: .9mm; white-space: nowrap;
+  color: #2c3a9a; text-shadow: -.2mm -.2mm 0 #171b5c, .2mm -.2mm 0 #171b5c, -.2mm .2mm 0 #171b5c, .2mm .2mm 0 #171b5c; }
+.rp-sub { font-weight: 700; font-size: 15pt; line-height: 1.1; margin-top: 1.2mm; letter-spacing: .2mm; }
+.rp-addr { font-size: 11.5pt; margin-top: 1.4mm; }
+.rp-box1 { position: relative; margin-top: 5mm; height: 26mm; border: .55mm solid #111; border-radius: 4mm;
+  padding: 5.6mm 4mm 1.4mm; display: flex; flex-direction: column; justify-content: space-between; }
+.rp-tab { position: absolute; top: -5mm; left: 50%; margin-left: -26mm; width: 52mm; height: 8mm; border: .55mm solid #111; background: #fff;
+  display: flex; align-items: flex-end; padding: 0 2mm 1mm; }
+.rp-tab .rf-v { font-size: 10.5pt; }
+.rp-tab b { font-size: 12pt; font-weight: 700; line-height: 1; margin-left: 1.5mm; padding-bottom: .4mm; }
+.rp-row { display: grid; column-gap: 3mm; align-items: end; }
+.rp-box2 { margin-top: 3mm; height: 214mm; border: .55mm solid #111; border-radius: 4mm; padding: 2mm 3mm; display: flex; flex-direction: column; }
+.rp-wh { height: 8mm; display: flex; gap: 6mm; align-items: flex-end; padding-bottom: 1mm; }
+.rp-wh .rf { width: 47mm; }
+.rp-table { width: 100%; table-layout: fixed; border-collapse: collapse; border: .5mm solid #000; }
+.rp-table th, .rp-table td { border: .3mm solid #000; padding: 0 .6mm; text-align: center; vertical-align: middle; overflow: hidden; line-height: 1; }
+.rp-table th { font-weight: 400; font-size: 7.4pt; line-height: .95; padding: 0; }
+.rp-table th.sj { font-size: 11pt; }
+.rp-table th.rm { font-size: 11pt; }
+.rp-table td { font-weight: 700; font-size: 10.5pt; }
+.rp-table td.sn { text-align: left; font-weight: 400; font-size: 11pt; padding-left: 1.2mm; white-space: nowrap; }
+.rp-table td.rk { font-size: 8.5pt; font-weight: 700; text-align: left; padding-left: 1.2mm; white-space: nowrap; }
+.rp-foot { flex: 1; display: flex; flex-direction: column; padding-top: 1mm; }
+.rp-tot { height: 8mm; display: grid; grid-template-columns: 1.05fr 1fr .95fr; column-gap: 3mm; align-items: end; padding-bottom: 1mm; }
+.rp-tot .rf-l { font-size: 11pt; }
+.rp-lower { flex: 1; display: flex; gap: 5mm; }
+.rp-left { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding-bottom: .5mm; }
+.rp-aff { width: 67mm; height: 61.2mm; margin-top: 1mm; table-layout: fixed; border-collapse: collapse; border: .5mm solid #000; align-self: flex-start; }
+.rp-aff th, .rp-aff td { border: .3mm solid #000; padding: 0 1mm; height: 6.8mm; line-height: 1; overflow: hidden; }
+.rp-aff th { font-size: 9.5pt; font-weight: 700; text-align: left; }
+.rp-aff th.n { text-align: center; padding: 0; font-size: 9.5pt; }
+.rp-aff td { font-size: 10.5pt; white-space: nowrap; }
+.rp-aff td.c { text-align: center; padding: 0; font-weight: 700; font-size: 11pt; }
+
+/* ========== SECONDARY / COLLEGE ========== */
+.rs-head { height: 36mm; position: relative; display: flex; align-items: center; justify-content: center; font-family: "Source Sans 3", Arial, Helvetica, sans-serif; }
+.rs-logo { position: absolute; left: 4mm; top: 9mm; width: 24mm; height: 24mm; border-radius: 50%; object-fit: cover; }
+.rs-htext { text-align: center; }
+.rs-ar { font-family: "Reem Kufi", "Noto Naskh Arabic", serif; font-size: 17pt; font-weight: 700; color: #1f2b8f; line-height: 1.15; }
+.rs-title { font-family: "Archivo Black", "Arial Black", Arial, sans-serif; font-weight: 400; font-size: 19.5pt; color: #1f2b8f; line-height: 1.05; letter-spacing: .1mm; white-space: nowrap; }
+.rs-col { font-weight: 700; font-size: 12.5pt; line-height: 1.25; margin-top: .6mm; }
+.rs-addr { font-size: 10pt; line-height: 1.2; }
+.rs-pill { font-family: "Source Sans 3", Arial, sans-serif; display: inline-block; margin-top: 1.4mm; padding: 0 9mm; height: 7mm; line-height: 6.4mm; border: .35mm solid #555; border-radius: 4mm; background: #d3dccd; font-weight: 700; font-size: 11.5pt; }
+.rs-fields { margin-top: 3mm; height: 22.5mm; display: grid; grid-template-columns: 38% 23% 39%; grid-template-rows: repeat(3, 1fr); column-gap: 3mm; align-items: end; }
+.rs-fields .rf-l { font-size: 12.5pt; }
+.rs-fields .rf-v { font-size: 11.5pt; }
+.rs-main { margin-top: 2.5mm; display: flex; height: 169mm; }
+.rs-left { width: 69%; table-layout: fixed; border-collapse: collapse; border: .55mm solid #000; }
+.rs-right { width: 31%; table-layout: fixed; border-collapse: collapse; border: .55mm solid #000; border-left: none; }
+.rs-left th, .rs-left td, .rs-right th, .rs-right td { border: .3mm solid #000; padding: 0 .6mm; text-align: center; vertical-align: middle; overflow: hidden; line-height: 1; }
+.rs-left th { font-weight: 400; font-size: 7.6pt; line-height: 1; }
+.rs-left th.sj { font-size: 13pt; }
+.rs-left td { font-weight: 700; font-size: 10.5pt; }
+.rs-left td.sn { text-align: left; font-weight: 400; font-size: 10pt; line-height: 1.02; padding-left: 1.2mm; }
+.rs-right th { font-weight: 400; font-size: 8pt; }
+.rs-right th b { font-size: 13pt; font-weight: 400; }
+.rs-right td { font-size: 7.4pt; text-align: left; padding-left: 1.4mm; white-space: nowrap; }
+.rs-right td.bx { text-align: center; padding: 0; font-weight: 700; font-size: 10pt; }
+.rs-right td.bh { font-size: 10.5pt; }
+.rs-right td.bh small { font-size: 7.4pt; }
+.rs-foot { margin-top: 2mm; display: flex; gap: 8mm; height: 41mm; }
+.rs-fl { width: 60%; display: flex; flex-direction: column; justify-content: space-between; }
+.rs-fl > * { flex: none; }
+.rs-fl > .rf, .rs-tots { height: 7.5mm; }
+.rs-fr { flex: 1; font-size: 8.4pt; line-height: 1.3; padding-top: 1mm; }
+.rs-fr .kt { text-align: center; font-weight: 700; font-size: 10pt; margin-bottom: 3mm; }
+.rs-tots { display: grid; grid-template-columns: 1fr 1fr; column-gap: 4mm; align-items: end; }
+.rs-tots .rf-l, .rs-foot .rf-l { font-size: 11.5pt; }
+.rs-rem { position: relative; height: 13mm; }
+.rs-rem p { margin: 0; line-height: 6.5mm; font-size: 11.5pt; }
+.rs-rem .rt { font-weight: 700; font-size: 10pt; }
+.rs-rem .rl { position: absolute; left: 0; right: 0; border-bottom: .3mm solid #000; }
+.rs-rem .sgn { float: right; width: 34mm; height: 6.5mm; margin-top: 6.5mm; position: relative; display: flex; align-items: flex-end; font-size: 11.5pt; line-height: 1; }
+.rs-rem .sgn i { flex: 1; border-bottom: .3mm solid #000; height: 5mm; margin-left: 1.5mm; }
+.rs-rem .sgn img { position: absolute; right: 2mm; bottom: .8mm; height: 8mm; max-width: 26mm; object-fit: contain; }
+
+/* clean bold sans for all filled-in values; serif kept for printed labels */
+.rf-v, .rp-table td, .rs-left td, .rs-right td.bx, .rp-aff td.c, .ruled .rt, .rs-rem .rt {
+  font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif; font-weight: 700; letter-spacing: 0; font-variant-numeric: lining-nums tabular-nums; }
+.rp-table td.sn, .rs-left td.sn, .rp-aff td:first-child { font-family: "Tinos", "Times New Roman", serif; font-weight: 400; }
+.rp-table td { font-size: 11pt; }
+.rp-table td.rk { font-size: 9pt; font-weight: 600; }
+.rs-left td { font-size: 11pt; }
+.rf-v { font-size: 11.5pt; }
+.ruled .rt, .rs-rem .rt { font-size: 10.5pt; font-weight: 600; }
+.rs-fields { grid-template-columns: 36% 22% 42%; }
+.rs-fields .rf-v.long { font-size: 10pt; }
+.rs-right td { font-size: 7.6pt; }
